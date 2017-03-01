@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+ruby "2.0.0"
 gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
 # Use SCSS for stylesheets
@@ -25,7 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'rgeo'
 gem 'dbf'
-# gem "ffi-geos"
+gem "ffi-geos"
 gem 'rgeo-shapefile', '~>0.3.0'
 
 # Use ActiveModel has_secure_password
@@ -49,4 +50,6 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
+# postgres://<username>:<password>@<host>:<port>/<database>
+# postgres://hnybsrjtgcjfgc:d40e4bd0baf76008b738d84fca778c4b165340128211486c8b6a4120927d2a21@ec2-107-20-191-76.compute-1.amazonaws.com:5432/ddm6t801atd3r8
+# heroku config:set DATABASE_URL="postgis://hnybsrjtgcjfgc:d40e4bd0baf76008b738d84fca778c4b165340128211486c8b6a4120927d2a21@ec2-107-20-191-76.compute-1.amazonaws.com:5432/ddm6t801atd3r8?postgis_extension=true&search_schema_path=public,postgis"
