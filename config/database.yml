@@ -5,16 +5,16 @@
 #   gem 'sqlite3'
 #
 development:
-  adapter: postgresql
+  adapter: postgis
   database: unearthed_development
   host: localhost
 
 test:
-  adapter: postgresql
+  adapter: postgis
   database: unearthed_test
   host: localhost
 
 production:
-  adapter: postgresql
+  adapter: postgis
   database: unearthed_production
   host: localhost
