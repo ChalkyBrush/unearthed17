@@ -23,7 +23,7 @@ class ExampleMinesController < ApplicationController
 		  	canada.push(rowData.values[0])
 		  elsif rowData.values[1] == "Chile2"
 		  	chile2.push(rowData.values[0])
-		  elsif rowData.values[1] == "Dominican Republic"
+		  elsif rowData.values[1] == "Dominican Republic3"
 		  	dominicanRepublic.push(rowData.values[0])
 		  elsif rowData.values[1] == "Papua New Guinea"
 		  	papuaNewGuinea.push(rowData.values[0])
@@ -39,7 +39,7 @@ class ExampleMinesController < ApplicationController
 		  displayData.push(rowData)
 		end
 		newDisplayData = {"Argentina2" => argentina2, "Australia" => australia, "Canada" => canada,
-			"Chile2" => chile2, "Dominican Republic" => dominicanRepublic, "Papua New Guinea" => papuaNewGuinea,
+			"Chile2" => chile2, "Dominican Republic3" => dominicanRepublic, "Papua New Guinea" => papuaNewGuinea,
 			"Peru" => peru, "Saudi Arabia4" => saudiArabia4, "Australia" => australia, "Zambia5" => zambia5}
 		render :json => newDisplayData
 	end
