@@ -48,7 +48,7 @@ class ExampleMinesController < ApplicationController
 	
 
 	def shapefileTest
-		RGeo::Shapefile::Reader.open("app/assets/shapefiles/nevada.shp") do |file|
+		RGeo::Shapefile::Reader.open("app/assets/shapefiles/nevada.shp", {:assume_inner_follows_outer => true}) do |file|
 		  puts "File contains #{file.num_records} records."
 		  displayData = []
 		  file.each do |record|
