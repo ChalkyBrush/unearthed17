@@ -26,7 +26,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'rgeo'
 gem 'dbf'
-gem "ffi-geos"
 gem 'rgeo-shapefile', '~>0.3.0'
 
 # Use ActiveModel has_secure_password
