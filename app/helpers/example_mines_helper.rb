@@ -1,0 +1,2 @@
+module ExampleMinesHelper
+end
