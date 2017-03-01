@@ -51,12 +51,9 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
-    dbf (1.7.8)
-      fastercsv (~> 1.5.4)
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.6.0)
-    fastercsv (1.5.5)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     i18n (0.8.1)
@@ -113,9 +110,6 @@ GEM
     rgeo-activerecord (4.0.5)
       activerecord (~> 4.2)
       rgeo (~> 0.3)
-    rgeo-shapefile (0.3.0)
-      dbf (~> 1.7)
-      rgeo (~> 0.3)
     sass (3.4.18)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -160,8 +154,6 @@ DEPENDENCIES
   jquery-rails
   pg
   rails (= 4.2.1)
-  rgeo
-  rgeo-shapefile (~> 0.3.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
