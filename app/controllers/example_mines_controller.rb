@@ -1,4 +1,5 @@
 class ExampleMinesController < ApplicationController
+
 	def view_data
 		csv = ExampleMine.readCSVandStore()
 		displayData = []
@@ -42,6 +43,21 @@ class ExampleMinesController < ApplicationController
 			"Chile2" => chile2, "Dominican Republic3" => dominicanRepublic, "Papua New Guinea" => papuaNewGuinea,
 			"Peru" => peru, "Saudi Arabia4" => saudiArabia4, "Australia" => australia, "Zambia5" => zambia5}
 		render :json => newDisplayData
+	end
+
+	
+
+	def shapefileTest
+		RGeo::Shapefile::Reader.open("app/assets/shapefiles/nevada.shp") do |file|
+		  puts "File contains #{file.num_records} records."
+		  displayData = []
+		  file.each do |record|
+		  	recordHash = {"Index" => record.index, "Geometry" => record.geometry.as_text, "Attributes" => record.attributes.inspect}
+		  	displayData.push(recordHash)
+		  end
+
+		end
+		render :json => displayData
 	end
 
 end

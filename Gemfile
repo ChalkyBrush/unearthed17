@@ -21,6 +21,13 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
+
+gem 'rgeo-shapefile', '~>0.3.0'
+gem 'rgeo'
+gem 'postgis'
+# gem 'dbf'
+# gem "ffi-geos", ">= 0.0.4"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
