@@ -7,4 +7,5 @@ Rails.application.routes.draw do
 
   get 'example_mines/test1' => "example_mines#view_data"
   get 'example_mines/shapefileTest' => "example_mines#shapefileTest"
+  
 end
