@@ -24,7 +24,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 
-
 gem 'rgeo'
 gem 'dbf'
 gem 'rgeo-shapefile', '~>0.3.0'
