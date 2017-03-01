@@ -24,7 +24,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'rgeo-shapefile', '~>0.3.0'
 gem 'rgeo'
-gem 'postgis'
+# gem 'postgis'
 # gem 'dbf'
 # gem "ffi-geos", ">= 0.0.4"
 
