@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   get 'example_mines/shapefileTest' => "example_mines#shapefileTest"
 
   get 'regions/beginScrapeProcess' => "regions#beginScrapeProcess"
+  get 'regions/viewRegionData' => "regions#viewRegionData"
 end
