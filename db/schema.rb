@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170301033637) do
+ActiveRecord::Schema.define(version: 20170302204413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,21 @@ ActiveRecord::Schema.define(version: 20170301033637) do
     t.integer  "ore_processed_tonnes"
     t.integer  "tailings_material_stored_tonnes"
     t.integer  "waste_rock_stored_tonnes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "minerals", force: :cascade do |t|
+    t.string  "name"
+    t.integer "region_id"
+  end
+
+  add_index "minerals", ["region_id"], name: "index_minerals_on_region_id", using: :btree
+
+  create_table "regions", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "coordinateX"
+    t.integer  "coordinateY"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
