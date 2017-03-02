@@ -30,9 +30,6 @@ GEM
       activemodel (= 4.2.1)
       activesupport (= 4.2.1)
       arel (~> 6.0)
-    activerecord-postgis-adapter (3.1.4)
-      activerecord (~> 4.2)
-      rgeo-activerecord (>= 4.0.4)
     activesupport (4.2.1)
       i18n (~> 0.7)
       json (~> 1.7, >= 1.7.7)
@@ -51,12 +48,9 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
-    dbf (1.7.8)
-      fastercsv (~> 1.5.4)
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.6.0)
-    fastercsv (1.5.5)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     i18n (0.8.1)
@@ -109,13 +103,6 @@ GEM
     rake (12.0.0)
     rdoc (4.2.0)
       json (~> 1.4)
-    rgeo (0.5.3)
-    rgeo-activerecord (4.0.5)
-      activerecord (~> 4.2)
-      rgeo (~> 0.3)
-    rgeo-shapefile (0.3.0)
-      dbf (~> 1.7)
-      rgeo (~> 0.3)
     sass (3.4.18)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -153,16 +140,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord-postgis-adapter
   byebug
   coffee-rails (~> 4.1.0)
-  dbf
   jbuilder (~> 2.0)
   jquery-rails
   pg
   rails (= 4.2.1)
-  rgeo
-  rgeo-shapefile (~> 0.3.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
