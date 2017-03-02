@@ -1,7 +1,7 @@
 class ExampleMine < ActiveRecord::Base
 
 require 'csv'
-require 'rgeo/shapefile'
+# require 'rgeo/shapefile'
 
  def self.readCSVandStore
  	path = "/assets/esg-data.csv"
