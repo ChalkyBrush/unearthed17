@@ -3,24 +3,40 @@ class Region < ActiveRecord::Base
 	require 'open-uri'
 
 	def self.scrapeMinDat
-		doc = Nokogiri::HTML(open('https://www.mindat.org/lsearch.php?from=nsearch&loc=chile'))
+		doc = Nokogiri::HTML(open('https://www.mindat.org/loc-638.html'))
 		data = []
-		puts "### Search for nodes by css"
-		doc.css('nav ul.menu li a', 'article h2').each do |link|
-		  puts link.content
-		  data.push(link.content)
-		end
 
-		puts "### Search for nodes by xpath"
-		doc.xpath('//nav//ul//li/a', '//article//h2').each do |link|
-		  puts link.content
-		  data.push(link.content)
-		end
+		search = 0
+		doc.search('a', 'a').each do |link|
+		  # puts link.content
+		  if link.first[1].include? "loc-"
+		  	if !link.first[1].include? "638"
 
-		puts "### Or mix and match."
-		doc.search('nav ul.menu li a', '//article//h2').each do |link|
-		  puts link.content
-		  data.push(link.content)
+			  	data.push(link.first[1])
+			  	if search < 4
+			  		search = search + 1
+			  		newData = []
+			  		doc2 = Nokogiri::HTML(open('https://www.mindat.org/'+link.first[1]))
+			  		getTitle = true
+			  		doc2.search('h1').each do |link|
+			  			if getTitle
+			  				getTitle = false
+			  				puts link.content
+			  			end
+			  			# newData.push(link.content)
+			  		end
+			  		doc2.css('.lm').each do |link|
+			  			# puts link.first
+			  			newData.push(link.content)
+			  		end
+			  		doc2.css('.lm1').each do |link|
+			  			# puts link.first
+			  			newData.push(link.content)
+			  		end
+			  		data.push(newData)
+			  	end
+			 end
+		  end
 		end
 		return data
 	end
