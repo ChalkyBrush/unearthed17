@@ -9,7 +9,7 @@ class RegionsController < ApplicationController
 
 	def addLongAndLatToRegions
 		results = nil
-		Region.where('id > 100') do |region|
+		Region.all.each do |region|
 			name = region.name
 			name = name.gsub('  ', "+").gsub(' ', "+").gsub(',',"")
 			query = name
@@ -49,12 +49,14 @@ class RegionsController < ApplicationController
 
 	def viewRegionData
 		data = []
-		Region.all.each do |x|
-			subData = []
-			Mineral.where(region_id: x.id).each do |mineral|
-				subData.push(mineral.name)	
+		Region.all.each do |region|
+			mineralsArray = []
+			
+			Mineral.where(region_id: region.id).each do |mineral|
+				mineralsArray.push(mineral.name)	
 			end
-			data.push(x.name => subData)
+			subData = {"minerals" => mineralsArray, "lat" => region.coordinateX, "lng" => region.coordinateY, "SWlat" => region.coordinateX_SW, "SWlng" => region.coordinateY_SW, "NElat" => region.coordinateX_NE, "NElng" => region.coordinateY_NE}
+			data.push(region.name => subData)
 		end
 		render :json => data
 	end
