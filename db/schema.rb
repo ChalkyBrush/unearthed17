@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170302204413) do
+ActiveRecord::Schema.define(version: 20170302234834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,10 +68,14 @@ ActiveRecord::Schema.define(version: 20170302204413) do
 
   create_table "regions", force: :cascade do |t|
     t.string   "name"
-    t.integer  "coordinateX"
-    t.integer  "coordinateY"
+    t.string   "coordinateX"
+    t.string   "coordinateY"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "coordinateX_SW"
+    t.string   "coordinateX_NE"
+    t.string   "coordinateY_SW"
+    t.string   "coordinateY_NE"
   end
 
 end

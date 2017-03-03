@@ -2,8 +2,8 @@ class CreateRegionsAndMinerals < ActiveRecord::Migration
   def change
     create_table :regions do |t|
 			t.string :name
-			t.integer :coordinateX
-			t.integer :coordinateY
+			t.string :coordinateX
+			t.string :coordinateY
 
 			t.timestamps
 	    end

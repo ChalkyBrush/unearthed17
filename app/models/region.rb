@@ -2,6 +2,7 @@ class Region < ActiveRecord::Base
 	require 'nokogiri'
 	require 'open-uri'
 
+
 	def self.scrapeMinDat
 		doc = Nokogiri::HTML(open('https://www.mindat.org/loc-638.html'))
 		data = []
