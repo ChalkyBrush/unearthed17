@@ -49,7 +49,7 @@ class RegionsController < ApplicationController
 
 	def viewRegionData
 		data = []
-		Region.all.each do |region|
+		Region.order("name ASC").each do |region|
 			mineralsArray = []
 			
 			Mineral.where(region_id: region.id).each do |mineral|
