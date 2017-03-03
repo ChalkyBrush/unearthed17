@@ -9,7 +9,7 @@ class RegionsController < ApplicationController
 
 	def addLongAndLatToRegions
 		results = nil
-		Region.all.each do |region|
+		Region.where('id > 100') do |region|
 			name = region.name
 			name = name.gsub('  ', "+").gsub(' ', "+").gsub(',',"")
 			query = name
