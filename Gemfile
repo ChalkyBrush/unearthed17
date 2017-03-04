@@ -29,6 +29,10 @@ gem 'geokit-rails'
 gem 'httparty'
 gem 'rack-cors', :require => 'rack/cors'
 
+gem 'platform-api', git: 'https://github.com/jalada/platform-api', branch: 'master'
+
+gem 'letsencrypt-rails-heroku', group: 'production'
+
 
 # gem 'rgeo'
 # gem 'dbf'
