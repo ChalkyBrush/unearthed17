@@ -61,11 +61,39 @@ class RegionsController < ApplicationController
 		render :json => data
 	end
 
+	def viewRegionData2d
+		data = {}
+		uniqueMineralNames = Mineral.uniq.pluck(:name)
+		puts data.count
+		Region.order("name ASC").each do |region|
+			# mineralsArray = []
+			
+			# Mineral.where(region_id: region.id).each do |mineral|
+			# 	mineralsArray.push(mineral.name)	
+			# end
+			subData = {"lat" => region.coordinateX, "lng" => region.coordinateY, "SWlat" => region.coordinateX_SW, "SWlng" => region.coordinateY_SW, "NElat" => region.coordinateX_NE, "NElng" => region.coordinateY_NE}
+			uniqueMineralNames.each do |mineral|
+				if Mineral.where(region_id: region.id, name: mineral).count > 0 then
+					subData[mineral] = 1
+				else
+					subData[mineral] = 0
+				end
+			end
+			data[region.name.to_sym] = subData
+		end
+		render :json => data
+	end
+
 	def viewDrillings
 		data = {}
 		Drilling.find_each do |x|
 			data[x.drill_id.to_sym] = x
 		end
+		render :json => data
+	end
+
+	def viewSAprojects
+		data = File.read("app/assets/ProjectSA_geojson.json")
 		render :json => data
 	end
 end

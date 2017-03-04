@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   get 'regions/viewRegionData' => "regions#viewRegionData"
   get 'regions/addLongAndLatToRegions'	=> "regions#addLongAndLatToRegions"
   get 'regions/viewDrillings' => "regions#viewDrillings"
+  get 'regions/viewRegionData2d' => "regions#viewRegionData2d"
+  get 'regions/viewSAprojects' => "regions#viewSAprojects"
 end
