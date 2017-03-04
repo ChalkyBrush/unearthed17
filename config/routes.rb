@@ -13,4 +13,10 @@ Rails.application.routes.draw do
   get 'regions/viewDrillings' => "regions#viewDrillings"
   get 'regions/viewRegionData2d' => "regions#viewRegionData2d"
   get 'regions/viewSAprojects' => "regions#viewSAprojects"
+
+  get 'regions/viewConstructionProjects' => "regions#viewConstructionProjects"
+  get 'regions/viewExplorationProjects' => "regions#viewExplorationProjects"
+  get 'regions/viewOperationProjects' => "regions#viewOperationProjects"
+  get 'regions/viewStudyProjects' => "regions#viewStudyProjects"
+  get 'regions/viewTargetProjects' => "regions#viewTargetProjects"
 end

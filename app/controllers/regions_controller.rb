@@ -96,4 +96,29 @@ class RegionsController < ApplicationController
 		data = File.read("app/assets/ProjectSA_geojson.json")
 		render :json => data
 	end
+
+	def viewConstructionProjects
+		data = File.read("app/assets/PropertiesConstruction_geojson.json")
+		render :json => data
+	end
+
+	def viewExplorationProjects
+		data = File.read("app/assets/PropertiesExploration_geojson.json")
+		render :json => data
+	end
+
+	def viewOperationProjects
+		data = File.read("app/assets/PropertiesOperation_geojson.json")
+		render :json => data
+	end
+
+	def viewStudyProjects
+		data = File.read("app/assets/PropertiesStudy_geojson.json")
+		render :json => data
+	end
+
+	def viewTargetProjects
+		data = File.read("app/assets/PropertiesTarget_geojson.json")
+		render :json => data
+	end
 end
