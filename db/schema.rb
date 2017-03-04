@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170302234834) do
+ActiveRecord::Schema.define(version: 20170304031137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "drillings", force: :cascade do |t|
+    t.integer  "region_id"
+    t.string   "coordinate_x"
+    t.string   "coordinate_y"
+    t.integer  "from"
+    t.integer  "to"
+    t.integer  "interval"
+    t.string   "gold"
+    t.integer  "depth"
+    t.string   "drill_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "example_mines", force: :cascade do |t|
     t.string   "mine_name"

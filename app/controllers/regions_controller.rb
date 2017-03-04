@@ -60,4 +60,12 @@ class RegionsController < ApplicationController
 		end
 		render :json => data
 	end
+
+	def viewDrillings
+		data = {}
+		Drilling.find_each do |x|
+			data[x.drill_id.to_sym] = x
+		end
+		render :json => data
+	end
 end

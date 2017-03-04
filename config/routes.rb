@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get 'regions/beginScrapeProcess' => "regions#beginScrapeProcess"
   get 'regions/viewRegionData' => "regions#viewRegionData"
   get 'regions/addLongAndLatToRegions'	=> "regions#addLongAndLatToRegions"
+  get 'regions/viewDrillings' => "regions#viewDrillings"
 end
