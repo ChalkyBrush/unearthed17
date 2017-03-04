@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20170304031137) do
 
   create_table "drillings", force: :cascade do |t|
     t.integer  "region_id"
-    t.string   "coordinate_x"
-    t.string   "coordinate_y"
+    t.string   "lng"
+    t.string   "lat"
     t.integer  "from"
     t.integer  "to"
     t.integer  "interval"

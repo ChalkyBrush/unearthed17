@@ -46,8 +46,8 @@ class Drilling < ActiveRecord::Base
 		doc.search('coordinates').each_with_index do |link, index|
 			coordinateData = link.content.split(",")
 			coordinateHash = {}
-			coordinateHash["coordinateX"] = coordinateData[0]
-			coordinateHash["coordinateY"] = coordinateData[1]
+			coordinateHash["lng"] = coordinateData[0]
+			coordinateHash["lat"] = coordinateData[1]
 			dataHash[titleArray[index]]["coordinates"] = coordinateHash
 		end
 		doc.search('td').each_with_index do |link, index|
@@ -58,6 +58,10 @@ class Drilling < ActiveRecord::Base
 				str2_markerstring = " "
 
 				depth = tableString[/#{str1_markerstring}(.*?)#{str2_markerstring}/m, 1]
+				if depth == nil
+					str2_markerstring = "\n"
+					depth = tableString[/#{str1_markerstring}(.*?)#{str2_markerstring}/m, 1]
+				end
 				if depth!=nil
 					dataHash[titleArray[index]]["depth"] = depth.gsub("\n", "")
 				else
@@ -70,7 +74,7 @@ class Drilling < ActiveRecord::Base
 		dataHash.each do |key, array|
 		  if array!=nil
 		  	  if array["coordinates"] != nil
-				  Drilling.create!(drill_id: key, coordinate_x: array["coordinates"]["coordinateX"], coordinate_y: array["coordinates"]["coordinateY"], from: array["from"], to: array["to"], interval: array["interval"], gold: array["gold"], depth: array["depth"])
+				  Drilling.create!(drill_id: key, lng: array["coordinates"]["lng"], lat: array["coordinates"]["lat"], from: array["from"], to: array["to"], interval: array["interval"], gold: array["gold"], depth: array["depth"])
 				  puts "#{key}-----"
 				  puts array
 			  end
