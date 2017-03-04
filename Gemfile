@@ -27,6 +27,7 @@ gem 'nokogiri'
 gem 'geokit-rails'
 
 gem 'httparty'
+gem 'rack-cors', :require => 'rack/cors'
 
 
 # gem 'rgeo'
