@@ -62,7 +62,7 @@ class RegionsController < ApplicationController
 	end
 
 	def viewRegionData2d
-		data = {}
+		data = []
 		uniqueMineralNames = Mineral.uniq.pluck(:name)
 		puts data.count
 		Region.order("name ASC").each do |region|
@@ -71,7 +71,7 @@ class RegionsController < ApplicationController
 			# Mineral.where(region_id: region.id).each do |mineral|
 			# 	mineralsArray.push(mineral.name)	
 			# end
-			subData = {"lat" => region.coordinateX, "lng" => region.coordinateY, "SWlat" => region.coordinateX_SW, "SWlng" => region.coordinateY_SW, "NElat" => region.coordinateX_NE, "NElng" => region.coordinateY_NE}
+			subData = {"name" => region.name, "lat" => region.coordinateX, "lng" => region.coordinateY, "SWlat" => region.coordinateX_SW, "SWlng" => region.coordinateY_SW, "NElat" => region.coordinateX_NE, "NElng" => region.coordinateY_NE}
 			uniqueMineralNames.each do |mineral|
 				if Mineral.where(region_id: region.id, name: mineral).count > 0 then
 					subData[mineral] = 1
@@ -79,7 +79,7 @@ class RegionsController < ApplicationController
 					subData[mineral] = 0
 				end
 			end
-			data[region.name.to_sym] = subData
+			data.push(subData)
 		end
 		render :json => data
 	end
