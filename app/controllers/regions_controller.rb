@@ -48,15 +48,15 @@ class RegionsController < ApplicationController
 	end
 
 	def viewRegionData
-		data = {}
+		data = []
 		Region.order("name ASC").each do |region|
 			mineralsArray = []
 			
 			Mineral.where(region_id: region.id).each do |mineral|
 				mineralsArray.push(mineral.name)	
 			end
-			subData = {"minerals" => mineralsArray, "lat" => region.coordinateX, "lng" => region.coordinateY, "SWlat" => region.coordinateX_SW, "SWlng" => region.coordinateY_SW, "NElat" => region.coordinateX_NE, "NElng" => region.coordinateY_NE}
-			data[region.name.to_sym] = subData
+			subData = {"name" => region.namae, "minerals" => mineralsArray, "lat" => region.coordinateX, "lng" => region.coordinateY, "SWlat" => region.coordinateX_SW, "SWlng" => region.coordinateY_SW, "NElat" => region.coordinateX_NE, "NElng" => region.coordinateY_NE}
+			data.push(subData)
 		end
 		render :json => data
 	end
